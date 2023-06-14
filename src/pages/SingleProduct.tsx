@@ -18,7 +18,9 @@ const Navigate=useNavigate();
 
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://dummyjson.com/products/${id}`);
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/products/${id}`
+        );
         if (response.ok) {
           const data = await response.json();
           setProduct(data);

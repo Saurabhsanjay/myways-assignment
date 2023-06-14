@@ -25,7 +25,7 @@ const LoginScreen: React.FC = () => {
     };
 
     try {
-      const response = await fetch("https://dummyjson.com/auth/login", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,9 +35,9 @@ const LoginScreen: React.FC = () => {
 
       if (response.ok) {
         const data = await response.json();
+        navigate("/products");
         localStorage.setItem("token", data.token);
         console.log("Login successful:", data);
-        navigate("/");
       } else {
         const data = await response.json();
         setError(data.message);

@@ -15,7 +15,7 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
     alert("Please login first");
     return (
       <>
-       <Navigate to='/' />
+       <Navigate to='/products' />
       </>
     );
   }

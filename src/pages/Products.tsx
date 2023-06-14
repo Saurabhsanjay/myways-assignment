@@ -15,7 +15,7 @@ const Products: React.FC = () => {
 
   const fetchProducts = async (): Promise<void> => {
     try {
-      const response = await fetch("https://dummyjson.com/products");
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/products`);
       if (response.ok) {
         const data = await response.json();
         console.log(data.products);
